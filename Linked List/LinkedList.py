@@ -172,11 +172,11 @@ while travCycle.next != None:
 travCycle.next = cycle.head.next
 
 #print(isCycle(cycle))
-travCycle = cycle.head
-for i in range(12):
-    print(str(travCycle.data) + " --> ", end="")
-    travCycle = travCycle.next
-print()
+#travCycle = cycle.head
+#for i in range(12):
+#    print(str(travCycle.data) + " --> ", end="")
+#    travCycle = travCycle.next
+#print()
 
 def lengthCycle(linkedlist):
     head = linkedlist.head
@@ -215,7 +215,7 @@ def findCycleBeginning(linkedlist):
         slow = slow.next
     return fast.data
 
-print(findCycleBeginning(cycle))
+#print(findCycleBeginning(cycle))
 
 def medianOfList(linkedlist): # assumes no cycle
     head = linkedlist.head
@@ -232,3 +232,22 @@ def medianOfList(linkedlist): # assumes no cycle
     return slow
 #print(alist)
 #print(medianOfList(alist).data)
+
+
+def reverse(linkedlist):
+    head = linkedlist.head
+    if head == None or head.next == None:
+        return head
+    prev = None
+    curr = head
+    while curr != None:
+        nex = curr.next
+        curr.next = prev
+        prev = curr
+        curr = nex
+    
+    linkedlist.head = prev
+
+print(alist)
+reverse(alist)
+print(alist)
