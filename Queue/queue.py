@@ -78,3 +78,24 @@ while len(queue) != 0:
 print(queue.remove())
 #print(queue.data)
 print(queue)
+
+# sliding windows question:
+
+def slidingWindow(array, n): # array of numbers, n elements per window
+    queue = Queue()
+    s = 0
+    ans = []
+    for i in range(len(array)):
+        if len(queue) == n:
+            ans.append(s)
+            s -= queue.remove()
+        queue.add(array[i])
+        s += array[i]
+    ans.append(s)
+    return ans
+
+
+arr = [1, 4, 3, 2, 5]
+n = 3
+print(slidingWindow(arr, n))
+# should be [8, 9, 10]
