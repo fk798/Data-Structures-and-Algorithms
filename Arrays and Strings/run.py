@@ -58,7 +58,7 @@ def reverse(array):
         end -= 1
     return array
 
-arr = [1, 2, 3, 4, 5, 6]
+#arr = [2, 4, 1, 3, 8, 6, 5]
 #print(reverse(arr))
 #print(reverse([]))
 #print(reverse(arr))
@@ -80,8 +80,8 @@ def twoSum(array, target): # O(n) time, O(1) space
     return None
 
 
-print(arr)
-print(twoSum(arr, 10))
+#print(arr)
+#print(twoSum(arr, 10))
 
 # twoSum but O(n) time and O(n) space (due to no assumption of array being sorted)
 def twoSumUnsorted(array, target):
@@ -94,5 +94,28 @@ def twoSumUnsorted(array, target):
             hashTable[array[i]] = i
     return None
 
-print(arr)
-print(twoSumUnsorted(arr, 10))
+#print(arr)
+#print(twoSumUnsorted(arr, 10))
+
+# given a sorted array in non-decreasing order, return array of squares of each number in non-decreasing order - do it in O(n) time
+
+arr = [-4, -2, -1, 0, 3, 5]
+# should return [0, 1, 4, 9, 16, 25]
+
+def squaresInc(array): # O(n) space (not possible to do in O(1) space unless you want to sort - O(nlogn) time)
+    notInPlace = []
+    start = 0
+    end = len(array) - 1
+    while start < end:
+        if abs(array[start]) < abs(array[end]):
+            notInPlace.append(array[end] ** 2)
+            notInPlace.append(array[start] ** 2)
+        else:
+            notInPlace.append(array[start] ** 2)
+            notInPlace.append(array[end] ** 2)
+        start += 1
+        end -= 1
+    
+    return reverse(notInPlace)
+
+print(squaresInc(arr))
