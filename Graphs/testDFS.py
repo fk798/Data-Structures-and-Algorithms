@@ -81,18 +81,18 @@ def copyGraph(graph):
         aNewGraph.nodes.append(nodesDict[node])
     return aNewGraph
 
-copied = copyGraph(graph)
-print()
-printNodes(copied)
-print()
-node9 = Node(9)
-node10 = Node(10)
-graph.nodes.append(node9)
-graph.addNeighbor(node1, node9)
-graph.nodes[1].data = 11
-copied.nodes.append(node10)
-copied.addNeighbor(copied.nodes[0], node10)
+#copied = copyGraph(graph)
+#print()
+#printNodes(copied)
+#print()
+#node9 = Node(9)
+#node10 = Node(10)
+#graph.nodes.append(node9)
+#graph.addNeighbor(node1, node9)
+#graph.nodes[1].data = 11
+#copied.nodes.append(node10)
+#copied.addNeighbor(copied.nodes[0], node10)
 
-print(graph)
-print()
-print(copied)
+#print(graph)
+#print()
+#print(copied)
