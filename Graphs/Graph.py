@@ -23,3 +23,14 @@ class Graph:
 
     def __repr__(self):
         return str(self)
+
+    """def __eq__(self, aGraph):
+        if len(self.nodes) != len(aGraph):
+            return False
+        for i in range(len(self.nodes)):
+            if self.nodes[i] != aGraph.nodes[i]:
+                return False
+        return True
+    
+    def __ne__(self, aGraph):
+        return not self == aGraph"""

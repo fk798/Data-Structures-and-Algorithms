@@ -60,3 +60,39 @@ def printNodes(graph):
             dfsVisit(node, visited)
 
 printNodes(graph)
+
+
+# make a deep copy of a graph
+
+def dfsCopy(node, nodesDict):
+    nodesDict[node] = Node(node.data)
+    for newNode in node.neighbors:
+        if newNode not in nodesDict:
+            dfsCopy(newNode, nodesDict)
+        nodesDict[node].neighbors.append(nodesDict[newNode])
+
+def copyGraph(graph):
+    nodesDict = {}
+    aNewGraph = Graph()
+    for node in graph.nodes:
+        if node not in nodesDict:
+            dfsCopy(node, nodesDict)
+    for node in nodesDict:
+        aNewGraph.nodes.append(nodesDict[node])
+    return aNewGraph
+
+copied = copyGraph(graph)
+print()
+printNodes(copied)
+print()
+node9 = Node(9)
+node10 = Node(10)
+graph.nodes.append(node9)
+graph.addNeighbor(node1, node9)
+graph.nodes[1].data = 11
+copied.nodes.append(node10)
+copied.addNeighbor(copied.nodes[0], node10)
+
+print(graph)
+print()
+print(copied)
